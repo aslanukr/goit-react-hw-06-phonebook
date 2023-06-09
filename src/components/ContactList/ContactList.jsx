@@ -8,8 +8,6 @@ export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
-  // localStorage.setItem('contacts', JSON.stringify(contacts));
-
   const getFilteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();
     const sortedContacts = contacts.sort((a, b) =>
