@@ -14,9 +14,9 @@ export function ContactForm() {
     const number = e.target.elements.number.value;
     const normalizedName = name.toLowerCase().trim();
     if (
-      contacts
-        .map(contact => contact.name.toLowerCase().trim())
-        .includes(normalizedName)
+      contacts.find(
+        contact => contact.name.toLowerCase().trim() === normalizedName
+      )
     ) {
       Notiflix.Notify.warning(`${name} is already in contacts`);
       return;
