@@ -1,13 +1,9 @@
 import { setFilter } from 'redux/types';
 import { initialState } from './initialState';
+import { createReducer } from '@reduxjs/toolkit';
 
-export const filterReducer = (state = initialState, action) => {
-  if (action.type === setFilter) {
-    return {
-      ...state,
-      filter: action.payload,
-    };
-  }
-
-  return state;
-};
+export const filterReducer = createReducer(initialState.filter, builder => {
+  builder.addCase(setFilter, (state, action) => {
+    return action.payload;
+  });
+});

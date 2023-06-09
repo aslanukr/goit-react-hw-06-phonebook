@@ -9,12 +9,12 @@ export const ContactList = () => {
   const filter = useSelector(getFilter);
 
   const getFilteredContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    const sortedContacts = contacts.sort((a, b) =>
+    const normalizedFilter = filter.toLowerCase().trim();
+    const sortedContacts = [...contacts].sort((a, b) =>
       a.name.localeCompare(b.name)
     );
-    return sortedContacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+    return sortedContacts.filter(sortedContact =>
+      sortedContact.name.toLowerCase().includes(normalizedFilter)
     );
   };
 

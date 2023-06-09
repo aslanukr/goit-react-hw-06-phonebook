@@ -13,17 +13,16 @@ export function ContactForm() {
     e.preventDefault();
     const name = e.target.elements.name.value;
     const number = e.target.elements.number.value;
-    const normalizedName = name.toLowerCase();
+    const normalizedName = name.toLowerCase().trim();
     if (
       contacts
-        .map(contact => contact.name.toLowerCase())
+        .map(contact => contact.name.toLowerCase().trim())
         .includes(normalizedName)
     ) {
       Notiflix.Notify.warning(`${name} is already in contacts`);
       return;
     } else {
       dispatch(addContact(name, number));
-      localStorage.setItem('contacts', JSON.stringify(contacts));
       e.target.reset();
     }
   };
