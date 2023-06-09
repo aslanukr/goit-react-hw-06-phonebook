@@ -8,7 +8,7 @@ import {
   PhoneWrapper,
 } from 'components/Styles.styled';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contacts/contactsSlice';
 
 export const ListItem = ({ contact }) => {
   const { id, name, number } = contact;
